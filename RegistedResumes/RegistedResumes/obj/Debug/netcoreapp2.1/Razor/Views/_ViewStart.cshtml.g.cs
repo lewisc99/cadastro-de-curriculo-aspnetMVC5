@@ -13,7 +13,18 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#line 1 "C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\Views\_ViewImports.cshtml"
+using RegistedResumes;
+
+#line default
+#line hidden
+#line 2 "C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\Views\_ViewImports.cshtml"
+using RegistedResumes.Models;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c6956251800abafa52fe6b3fa821040b5c22aff7", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

@@ -10,7 +10,7 @@ using RegistedResumes.Data;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using System.Collections.Generic;
-
+using RegistedResumes.Services;
 
 namespace RegistedResumes
 {
@@ -27,13 +27,13 @@ namespace RegistedResumes
 
             services.AddDbContext<RegistedResumesContext>(options =>
 
-                   options.UseMySql("Server = localhost; Database = Resume; Uid = root; Pwd = Futebol#366;")); 
+                   options.UseMySql("Server = localhost; Database = Resume; Uid = root; Pwd = Futebol#366;"));
 
 
 
 
 
-
+            services.AddScoped<DepartmentService>();
 
         }
 

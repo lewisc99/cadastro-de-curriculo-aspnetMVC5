@@ -17,7 +17,7 @@ namespace RegistedResumes.Models
 
         public string Resume { get; set; }
 
-        public Department Department { get; set; }
+        public Department DepartmentId { get; set; }
 
 
     }
