@@ -31,3 +31,4 @@ C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netc
 C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Departments\Create.cshtml.g.cs
+C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Persons\Index.cshtml.g.cs

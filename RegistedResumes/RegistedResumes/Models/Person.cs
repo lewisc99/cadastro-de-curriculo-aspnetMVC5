@@ -17,8 +17,21 @@ namespace RegistedResumes.Models
 
         public string Resume { get; set; }
 
-        public Department DepartmentId { get; set; }
+        public Department Department { get; set; }
 
 
+        public Person()
+        {
+
+        }
+
+        public Person(int id, string name, string email, DateTime birthday, string resume,Department department)
+        {
+            Id = id;
+            Name = name;
+            BirthDate = birthday;
+            Resume = resume;
+            Department = department;
+        }
     }
 }

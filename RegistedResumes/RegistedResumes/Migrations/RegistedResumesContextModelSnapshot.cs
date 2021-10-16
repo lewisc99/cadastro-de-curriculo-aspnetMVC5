@@ -36,7 +36,7 @@ namespace RegistedResumes.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<int?>("DepartmentIdId");
+                    b.Property<int?>("DepartmentId");
 
                     b.Property<string>("Email");
 
@@ -46,16 +46,16 @@ namespace RegistedResumes.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartmentIdId");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Person");
                 });
 
             modelBuilder.Entity("RegistedResumes.Models.Person", b =>
                 {
-                    b.HasOne("RegistedResumes.Models.Department", "DepartmentId")
-                        .WithMany()
-                        .HasForeignKey("DepartmentIdId");
+                    b.HasOne("RegistedResumes.Models.Department", "Department")
+                        .WithMany("Person")
+                        .HasForeignKey("DepartmentId");
                 });
 #pragma warning restore 612, 618
         }

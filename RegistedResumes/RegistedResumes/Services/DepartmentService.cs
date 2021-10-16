@@ -13,7 +13,7 @@ namespace RegistedResumes.Services
         private readonly RegistedResumesContext _context;
 
 
-        DepartmentService(RegistedResumesContext context)
+       public DepartmentService(RegistedResumesContext context)
         {
             _context = context;
         }

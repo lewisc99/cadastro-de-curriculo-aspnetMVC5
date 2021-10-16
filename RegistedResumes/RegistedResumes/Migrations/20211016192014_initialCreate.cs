@@ -31,23 +31,23 @@ namespace RegistedResumes.Migrations
                     Email = table.Column<string>(nullable: true),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     Resume = table.Column<string>(nullable: true),
-                    DepartmentIdId = table.Column<int>(nullable: true)
+                    DepartmentId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Person", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Person_Department_DepartmentIdId",
-                        column: x => x.DepartmentIdId,
+                        name: "FK_Person_Department_DepartmentId",
+                        column: x => x.DepartmentId,
                         principalTable: "Department",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Person_DepartmentIdId",
+                name: "IX_Person_DepartmentId",
                 table: "Person",
-                column: "DepartmentIdId");
+                column: "DepartmentId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

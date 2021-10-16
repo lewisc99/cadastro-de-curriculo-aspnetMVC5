@@ -9,7 +9,7 @@ using RegistedResumes.Data;
 namespace RegistedResumes.Migrations
 {
     [DbContext(typeof(RegistedResumesContext))]
-    [Migration("20211014191430_initialCreate")]
+    [Migration("20211016192014_initialCreate")]
     partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,7 +38,7 @@ namespace RegistedResumes.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<int?>("DepartmentIdId");
+                    b.Property<int?>("DepartmentId");
 
                     b.Property<string>("Email");
 
@@ -48,16 +48,16 @@ namespace RegistedResumes.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartmentIdId");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Person");
                 });
 
             modelBuilder.Entity("RegistedResumes.Models.Person", b =>
                 {
-                    b.HasOne("RegistedResumes.Models.Department", "DepartmentId")
-                        .WithMany()
-                        .HasForeignKey("DepartmentIdId");
+                    b.HasOne("RegistedResumes.Models.Department", "Department")
+                        .WithMany("Person")
+                        .HasForeignKey("DepartmentId");
                 });
 #pragma warning restore 612, 618
         }
