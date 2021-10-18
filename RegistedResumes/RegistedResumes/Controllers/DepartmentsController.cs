@@ -45,5 +45,53 @@ namespace RegistedResumes.Controllers
 
             return View(department);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            var department = _context.Department.Find(id);
+            if (department == null)
+            {
+                return NotFound();
+            }
+            return View("Edit",department);
+        }
+        [HttpPost]
+        public IActionResult Edit(int id,Department department)
+        {
+           if (ModelState.IsValid)
+            {
+              //  var departmentt = _context.Department.Find(id);
+                _context.Department.Update(department);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View("Edit", _context.Department.Find(id));
+        }
+
+
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            var department = _context.Department.Find(id);
+            if (department == null)
+            {
+                return NotFound();
+            }
+            return View(department);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var department = _context.Department.Find(id);
+
+            _context.Department.Remove(department);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }
