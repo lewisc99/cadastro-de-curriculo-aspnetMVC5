@@ -10,6 +10,6 @@ namespace RegistedResumes.ViewModels
     {
 
         public Person Person { get; set; }
-        public Department Department { get; set; }
+        public ICollection<Department> Department { get; set; }
     }
 }

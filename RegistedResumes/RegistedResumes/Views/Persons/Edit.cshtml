@@ -1,0 +1,44 @@
+﻿@model RegistedResumes.ViewModels.PersonViewModel
+
+@{
+    ViewData["Title"] = "Edit Person Resume";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <input type="hidden" asp-for="Person.Id" />
+                <label asp-for="Person.Name" class="control-label"></label>
+                <input asp-for="Person.Name" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Email" class="control-label"></label>
+                <input asp-for="Person.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.BirthDate" class="control-label"></label>
+                <input asp-for="Person.BirthDate" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Resume" class="control-label"></label>
+                <textarea asp-for="Person.Resume" class="form-control" placeholder="added your resume" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.DepartmentId" class="control-label"></label>
+                <select asp-for="Person.DepartmentId" asp-items="@(new SelectList(Model.Department,"Id","Name"))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-default" value="Save" /> |
+                <a asp-action="Index">Back to list</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

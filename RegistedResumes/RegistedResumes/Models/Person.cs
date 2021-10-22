@@ -19,6 +19,8 @@ namespace RegistedResumes.Models
 
         public Department Department { get; set; }
 
+        public int DepartmentId { get; set; }
+
 
         public Person()
         {
@@ -29,6 +31,7 @@ namespace RegistedResumes.Models
         {
             Id = id;
             Name = name;
+            Email = email;
             BirthDate = birthday;
             Resume = resume;
             Department = department;

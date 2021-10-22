@@ -34,3 +34,7 @@ C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netc
 C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Persons\Index.cshtml.g.cs
 C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Departments\Delete.cshtml.g.cs
 C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Departments\Edit.cshtml.g.cs
+C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Persons\Create.cshtml.g.cs
+C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Persons\Edit.cshtml.g.cs
+C:\Users\Pichau\Desktop\curriculo\RegistedResumes\RegistedResumes\obj\Debug\netcoreapp2.1\Razor\Views\Persons\Delete.cshtml.g.cs
