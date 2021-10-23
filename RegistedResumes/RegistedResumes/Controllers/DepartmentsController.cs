@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RegistedResumes.Data;
+using RegistedResumes.Library;
 using RegistedResumes.Models;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace RegistedResumes.Controllers
 {
+    [Login]
     public class DepartmentsController : Controller
     {
        private readonly RegistedResumesContext _context;

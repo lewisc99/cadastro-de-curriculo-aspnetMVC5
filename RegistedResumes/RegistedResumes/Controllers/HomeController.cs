@@ -25,29 +25,55 @@ namespace RegistedResumes.Controllers
 
         public IActionResult Login()
         {
+
             return View();
+
+
+
+
         }
 
 
-        [HttpGet]
-        public IActionResult Login(int? id,Staff staff)
+        [HttpPost]
+        public IActionResult Login(int? id, Staff staff)
         {
-            if(ModelState.IsValid)
-            {
-                bool email = _context.Staff.Any(x => x.Email == staff.Email);
+
+            bool email = _context.Staff.Any(obj => obj.Email == staff.Email) ;
 
                 bool password = _context.Staff.Any(x => x.Password == staff.Password);
-                if (email && password)
+                
+                if (email == true && password == true )
                 {
                     HttpContext.Session.SetString("Login", "true");
                     return RedirectToAction("Index", "Persons");
                 }
+                else
+                {
+                    if (email == false)
+                    {
+                        ViewBag.Mensagem = "The E-mail is invalid.";
+                    }
+                    else
+                    {
+                        ViewBag.Mensagem = "The Password is invalid.";
+                    }
+                    
+                    return View("Login");
+                }
+               
 
 
-            }
+            ViewBag.Mensagem = "The E-mail or the password is invalid.";
+            return View();
 
 
-            return View("Login");
+        }
+
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+
+          return  RedirectToAction("Index");
         }
     }
 }

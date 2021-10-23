@@ -29,7 +29,7 @@ namespace RegistedResumes.Models
 
 
         [Required(ErrorMessage = "The Resume is required to fill it")]
-        [StringLength(100,MinimumLength =20,ErrorMessage ="size should be 20 between and 100")]
+        [StringLength(300,MinimumLength =20,ErrorMessage ="size should be 20 between and 100")]
 
         public string Resume { get; set; }
 

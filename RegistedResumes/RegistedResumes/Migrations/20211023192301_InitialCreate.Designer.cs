@@ -9,8 +9,8 @@ using RegistedResumes.Data;
 namespace RegistedResumes.Migrations
 {
     [DbContext(typeof(RegistedResumesContext))]
-    [Migration("20211016192014_initialCreate")]
-    partial class initialCreate
+    [Migration("20211023192301_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,8 @@ namespace RegistedResumes.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -38,13 +39,18 @@ namespace RegistedResumes.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<int?>("DepartmentId");
+                    b.Property<int>("DepartmentId");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
-                    b.Property<string>("Resume");
+                    b.Property<string>("Resume")
+                        .IsRequired()
+                        .HasMaxLength(300);
 
                     b.HasKey("Id");
 
@@ -53,11 +59,29 @@ namespace RegistedResumes.Migrations
                     b.ToTable("Person");
                 });
 
+            modelBuilder.Entity("RegistedResumes.Models.Staff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Staff");
+                });
+
             modelBuilder.Entity("RegistedResumes.Models.Person", b =>
                 {
                     b.HasOne("RegistedResumes.Models.Department", "Department")
                         .WithMany("Person")
-                        .HasForeignKey("DepartmentId");
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

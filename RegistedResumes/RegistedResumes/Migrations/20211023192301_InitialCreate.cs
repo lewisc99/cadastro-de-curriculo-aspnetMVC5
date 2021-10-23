@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RegistedResumes.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,11 +14,25 @@ namespace RegistedResumes.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Department", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Staff",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Email = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(maxLength: 20, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Staff", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -27,11 +41,11 @@ namespace RegistedResumes.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 20, nullable: false),
+                    Email = table.Column<string>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
-                    Resume = table.Column<string>(nullable: true),
-                    DepartmentId = table.Column<int>(nullable: true)
+                    Resume = table.Column<string>(maxLength: 300, nullable: false),
+                    DepartmentId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -41,7 +55,7 @@ namespace RegistedResumes.Migrations
                         column: x => x.DepartmentId,
                         principalTable: "Department",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -54,6 +68,9 @@ namespace RegistedResumes.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Person");
+
+            migrationBuilder.DropTable(
+                name: "Staff");
 
             migrationBuilder.DropTable(
                 name: "Department");

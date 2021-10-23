@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace RegistedResumes.Controllers
 {
+
     public class PersonsController : Controller
     {
 

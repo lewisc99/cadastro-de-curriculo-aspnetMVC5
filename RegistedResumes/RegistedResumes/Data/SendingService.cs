@@ -36,7 +36,7 @@ namespace RegistedResumes.Data
 
                 Staff s1 = new Staff(1,"luiz@gmail.com","123456");
                 Staff s2 = new Staff(2, "maria@gmail.com", "123456");
-                Staff s3 = new Staff(2, "Pedro@gmail.com", "123456");
+                Staff s3 = new Staff(3, "Pedro@gmail.com", "123456");
 
                 _context.Staff.AddRange(s1, s2, s3);
                 _context.Department.AddRange(d1, d2, d3, d4);
