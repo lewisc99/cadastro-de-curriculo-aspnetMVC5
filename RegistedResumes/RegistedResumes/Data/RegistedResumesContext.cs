@@ -16,6 +16,7 @@ namespace RegistedResumes.Data
 
         }
 
+        public DbSet<Staff> Staff { get; set; }
         public DbSet<Department> Department { get; set; }
 
         public DbSet<Person> Person { get; set; }

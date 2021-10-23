@@ -29,7 +29,8 @@ namespace RegistedResumes
 
                    options.UseMySql("Server = localhost; Database = Resume; Uid = root; Pwd = Futebol#366;"));
 
-
+            services.AddDistributedMemoryCache();
+            services.AddSession();
 
 
 
@@ -38,6 +39,7 @@ namespace RegistedResumes
             services.AddScoped<SendingService>();
 
             services.AddScoped<PersonService>();
+            
 
         }
 
@@ -53,6 +55,8 @@ namespace RegistedResumes
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseSession();
 
 
             app.UseMvc(routes =>
