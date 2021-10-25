@@ -49,16 +49,22 @@ namespace RegistedResumes.Controllers
                 }
                 else
                 {
-                    if (email == false)
+                    if (password == false && email == false)
                     {
-                        ViewBag.Mensagem = "The E-mail is invalid.";
+                        
+                    ViewBag.Mensagem = "The email and  Password is invalid.";
+                }
+                    else if (email == false)  
+                    {
+                    ViewBag.Mensagem = "The E-mail is invalid.";
                     }
                     else
                     {
-                        ViewBag.Mensagem = "The Password is invalid.";
+                    ViewBag.Mensagem = "The Password is invalid.";
+                    
                     }
                     
-                    return View("Login");
+                    return View("Login",staff);
                 }
                
 
