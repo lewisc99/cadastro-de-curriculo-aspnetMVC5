@@ -25,19 +25,19 @@ namespace RegistedResumes.Controllers
         }
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var Person = _personService.FindAll();
+            var Person = await _personService.FindAllAsync();
             
             return View(Person);
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
 
 
-            var departments = _departmentService.FindAll();
+            var departments = await _departmentService.FindAllAsync();
                 var viewModel = new PersonViewModel() { Department = departments };
             
             return View(viewModel);
@@ -45,62 +45,62 @@ namespace RegistedResumes.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Person person)
+        public async Task<IActionResult> Create(Person person)
         {
             if(ModelState.IsValid)
             {
-                _personService.Insert(person);
+               await _personService.InsertAsync(person);
                 return RedirectToAction(nameof(Index));
             }
-            var departments = _departmentService.FindAll();
+            var departments = await _departmentService.FindAllAsync();
             var viewModel = new PersonViewModel() { Person = person, Department = departments };
             return View(viewModel);
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            Person person = _personService.FindById(id.Value);
+            Person person = await _personService.FindByIdAsync(id.Value);
 
-            List<Department> departments = _departmentService.FindAll();
+            List<Department> departments = await _departmentService.FindAllAsync();
             PersonViewModel personView = new PersonViewModel { Person = person, Department = departments };
 
             return View("Edit", personView);
 
         }
         [HttpPost]
-        public IActionResult Edit(int id, Person person)
+        public async Task<IActionResult> Edit(int id, Person person)
         {
            if(!ModelState.IsValid)
             {
-                List<Department> department = _departmentService.FindAll();
+                List<Department> department = await _departmentService.FindAllAsync();
                 PersonViewModel viewModel = new PersonViewModel { Person = person, Department = department };
 
                 return View( viewModel);
             }
-            _personService.UpdatePerson(person);
+            await _personService.UpdatePersonAsync(person);
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
 
             if (id == null)
             {
                 return NotFound();
             }
-            var obj = _personService.FindById(id.Value);
+            var obj = await _personService.FindByIdAsync(id.Value);
 
             return View(obj);
         }
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _personService.Remove(id);
+          await  _personService.RemoveAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }

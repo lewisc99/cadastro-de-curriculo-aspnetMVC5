@@ -2,6 +2,7 @@
 using RegistedResumes.Data;
 using RegistedResumes.Library;
 using RegistedResumes.Models;
+using RegistedResumes.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,17 +14,19 @@ namespace RegistedResumes.Controllers
     public class DepartmentsController : Controller
     {
        private readonly RegistedResumesContext _context;
+        private readonly DepartmentService _department;
 
-       public  DepartmentsController(RegistedResumesContext context)
+       public  DepartmentsController(RegistedResumesContext context,DepartmentService department)
         {
             _context = context;
+            _department = department;
         }
 
-        public IActionResult Index()
+      async  public Task<IActionResult> Index()
         {
-           
+            var department = await _department.FindAllAsync();
 
-            return View(_context.Department.ToList());
+            return View(department);
         }
 
         [HttpGet]
@@ -49,9 +52,9 @@ namespace RegistedResumes.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+       async public Task<IActionResult> Edit(int? id)
         {
-            var department = _context.Department.Find(id);
+            var department = await _context.Department.FindAsync(id);
             if (department == null)
             {
                 return NotFound();
@@ -59,13 +62,13 @@ namespace RegistedResumes.Controllers
             return View("Edit",department);
         }
         [HttpPost]
-        public IActionResult Edit(int id,Department department)
+      async  public Task<IActionResult> Edit(int id,Department department)
         {
            if (ModelState.IsValid)
             {
               //  var departmentt = _context.Department.Find(id);
                 _context.Department.Update(department);
-                _context.SaveChanges();
+               await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View("Edit", _context.Department.Find(id));
@@ -73,9 +76,9 @@ namespace RegistedResumes.Controllers
 
 
         [HttpGet]
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            var department = _context.Department.Find(id);
+            var department = await _context.Department.FindAsync(id);
             if (department == null)
             {
                 return NotFound();
@@ -86,12 +89,12 @@ namespace RegistedResumes.Controllers
 
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var department = _context.Department.Find(id);
+            var department = await _context.Department.FindAsync(id);
 
             _context.Department.Remove(department);
-            _context.SaveChanges();
+           await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
         }

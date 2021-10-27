@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using RegistedResumes.Models;
 using RegistedResumes.Data;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace RegistedResumes.Controllers
 {
@@ -35,10 +36,11 @@ namespace RegistedResumes.Controllers
 
 
         [HttpPost]
-        public IActionResult Login(int? id, Staff staff)
+        public  IActionResult Login(int? id, Staff staff)
         {
 
-            bool email = _context.Staff.Any(obj => obj.Email == staff.Email) ;
+
+            bool email =  _context.Staff.Any(obj => obj.Email == staff.Email) ;
 
                 bool password = _context.Staff.Any(x => x.Password == staff.Password);
                 

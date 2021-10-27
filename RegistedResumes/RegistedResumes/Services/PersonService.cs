@@ -18,25 +18,25 @@ namespace RegistedResumes.Services
             _context = contexto;
         }
 
-        public List<Person> FindAll()
+        public async Task<List<Person>> FindAllAsync()
         {
-            return _context.Person.Include(obj => obj.Department).ToList();
+            return await _context.Person.Include(obj => obj.Department).ToListAsync();
         }
 
-        public void Insert(Person person)
+        public async Task InsertAsync(Person person)
         {
             _context.Add(person);
-            _context.SaveChanges();
+           await _context.SaveChangesAsync();
         }
 
-        public Person FindById(int id)
+        public async Task<Person> FindByIdAsync(int id)
         {
-            return _context.Person.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
+            return await _context.Person.Include(obj => obj.Department).FirstOrDefaultAsync(obj => obj.Id == id);
 
         }
-        public void UpdatePerson( Person person)
+        public  async Task UpdatePersonAsync( Person person)
         {
-            bool hasAny = _context.Person.Any(x => x.Id == person.Id);
+            bool hasAny = await _context.Person.AnyAsync(x => x.Id == person.Id);
 
             if (!hasAny)
             {
@@ -48,11 +48,11 @@ namespace RegistedResumes.Services
             _context.SaveChanges();
         }
 
-        public  void Remove(int id)
+        public async Task RemoveAsync(int id)
         {
-           var obj = _context.Person.Find(id);
+           var obj =  _context.Person.FindAsync(id);
             _context.Remove(obj);
-            _context.SaveChanges();
+           await _context.SaveChangesAsync();
 
         }
     }
