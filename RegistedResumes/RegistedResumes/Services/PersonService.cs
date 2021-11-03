@@ -45,12 +45,12 @@ namespace RegistedResumes.Services
            // var find = _context.Person.FirstOrDefault(x => x.Id == person.Id);
 
             _context.Update(person);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
 
         public async Task RemoveAsync(int id)
         {
-           var obj =  _context.Person.FindAsync(id);
+           var obj =  _context.Person.Find(id);
             _context.Remove(obj);
            await _context.SaveChangesAsync();
 

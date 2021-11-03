@@ -91,7 +91,7 @@ namespace RegistedResumes.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            var department = await _context.Department.FindAsync(id);
+            var department = await  _context.Department.FindAsync(id);
 
             _context.Department.Remove(department);
            await _context.SaveChangesAsync();
