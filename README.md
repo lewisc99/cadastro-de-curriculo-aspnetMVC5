@@ -1,4 +1,4 @@
-# ASPNET Core MVC 5 - Básico CRUD.
+# ASPNET Core MVC 5 - CRUD.
 
 projeto básico de Cadastro de Curriculos e Departamentos (CRUD), Usando Login Basico, 
 com funcionarios já cadastrados no banco, sem possibilidade de acessar o sistema de cadastro
