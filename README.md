@@ -1,8 +1,11 @@
-# ASPNET Core MVC 5 - CRUD.
+<h1> ##asp net MVC 5 curriculum registration project </h1>
 
-projeto básico de Cadastro de Curriculos e Departamentos (CRUD), Usando Login Basico, 
-com funcionarios já cadastrados no banco, sem possibilidade de acessar o sistema de cadastro
-de Login sem que esteja Logado.
+<h3>Description English</h3>
+<p>
+    This project aims to create a basic system for Registering Curriculums and Departments, using CRUD as a basis. In order to guarantee data security and privacy, a Basic Login will be implemented, with employees previously registered in the database. Only logged-in users will have access to the curriculum registration system, thus ensuring the security of stored data. The system will allow the registration, updating and deletion of information referring to curriculum and departments, facilitating the management of human resources of companies and organizations.
+    </p>
+<h3>Descrição em Português </h3>
+<p>Este projeto tem como objetivo a criação de um sistema básico de Cadastro de Currículos e Departamentos, utilizando o CRUD como base. A fim de garantir a segurança e a privacidade dos dados, será implementado um Login Básico, com funcionários já cadastrados previamente no banco de dados. Somente os usuários logados terão acesso ao sistema de cadastro de currículos, garantindo assim a segurança dos dados armazenados. O sistema permitirá o cadastro, atualização e exclusão de informações referentes a currículos e departamentos, facilitando a gestão de recursos humanos de empresas e organizações. </p>
 
 <br />
 <br />
