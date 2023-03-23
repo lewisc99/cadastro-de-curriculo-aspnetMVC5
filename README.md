@@ -18,7 +18,6 @@ One to Many Relation Database
 </br>
 </br>
 
-
 ## 🖼 Screenshot Application Screen <br/>
 <p>How to Run</p><img src="imagens/csharp-curriculum.gif">
 <br/>
