@@ -3,7 +3,7 @@
 <h3>Description English</h3>
 <p>
     This project aims to create a basic system for Registering Curriculums and Departments, using CRUD as a basis. In order to guarantee data security and privacy, a Basic Login will be implemented, with employees previously registered in the database. Only logged-in users will have access to the curriculum registration system, thus ensuring the security of stored data. The system will allow the registration, updating and deletion of information referring to curriculum and departments, facilitating the management of human resources of companies and organizations.
-    </p>
+</p>
 <h3>Descrição em Português </h3>
 <p>Este projeto tem como objetivo a criação de um sistema básico de Cadastro de Currículos e Departamentos, utilizando o CRUD como base. A fim de garantir a segurança e a privacidade dos dados, será implementado um Login Básico, com funcionários já cadastrados previamente no banco de dados. Somente os usuários logados terão acesso ao sistema de cadastro de currículos, garantindo assim a segurança dos dados armazenados. O sistema permitirá o cadastro, atualização e exclusão de informações referentes a currículos e departamentos, facilitando a gestão de recursos humanos de empresas e organizações. </p>
 
@@ -19,7 +19,10 @@ One to Many Relation Database
 </br>
 
 
-## 🖼 Screenshot das telas da aplicação <br/>
+## 🖼 Screenshot Application Screen <br/>
+<p>How to Run</p><img src="imagens/csharp-curriculum.gif">
+<br/>
+<br/>
 <p>Tela de Login</p><img src="imagens/TeladeLogin.PNG">
 <br/>
 <br/>
